@@ -14,27 +14,32 @@ angular.module('calendarDemoApp', [])
   console.log(range);
 
   $scope.today = today;
+  $scope.month = month;
+  $scope.year = year;
   $scope.initialDay = range.first;
   $scope.firstDay = range.start;
   $scope.lastDay = range.end;
   $scope.days = range.days;
 
-  var years = [];
-  var yearsBefore = year - 20
-  var yearsAfter = year + 20
+  var yearsThirty = [];
+  var yearsBefore = year - 20;
+  var yearsAfter = year + 20;
 
-  console.log(yearsBefore);
-  console.log(yearsAfter);
-
-  for(var i = yearsBefore; i <= year; i++) {
-    years.push(i);
+  for(var i = yearsBefore; i <= yearsAfter; i++) {
+    yearsThirty.push(i);
   }
 
-  $scope.years = years;
+  console.log(yearsThirty);
 
-  console.log(years);
+  $scope.yearsThirty = yearsThirty;
+  $scope.selectYear = $scope.year;
 
-  $scope.months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+  $scope.monthsTwelve = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  $scope.selectMonth = $scope.monthsTwelve[today.getMonth()];
+
+  // var monthSelected = $scope.selectMonth 
+  // var yearSelected = $scope.selectYear
 
 
 })

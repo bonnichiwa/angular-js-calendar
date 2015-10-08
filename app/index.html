@@ -12,8 +12,10 @@
   <h1>Calendar Challenge</h1>
 </header>
 
-<select ng-model="selectMonth" ng-options="month as month for month in months"></select>
-<select ng-model="selectYear" ng-options="year as year for year in years"></select>
+<select ng-model="selectMonth" ng-options="month as month for month in monthsTwelve"></select>
+<select ng-model="selectYear" ng-options="year as year for year in yearsThirty"></select>
+
+<br>
 
 <calendar-display>
 </calender-display>

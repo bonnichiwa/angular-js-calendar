@@ -2,6 +2,11 @@ Today : {{today | date}} <br>
 First Day: {{firstDay | date}} <br>
 Last Day: {{lastDay | date}} <br>
 Initial Day: {{initialDay | date}}
+
+
+
+<h1>{{ selectMonth }} {{ selectYear }}</h1>
+
 <div id="calendarTable">
     <div class="calendarDates" ng-repeat="day in days">
       {{ day.day }}
