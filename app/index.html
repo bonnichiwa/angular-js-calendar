@@ -12,17 +12,8 @@
   <h1>Calendar Challenge</h1>
 </header>
 
-<select ng-model="selectMonth" ng-options="day.month for day in days"></select>
-
-Today : {{today | date}} <br>
-First Day: {{firstDay | date}} <br>
-Last Day: {{lastDay | date}} <br>
-Days: 
-<div id="calendarTable">
-    <div class="calendarDates" ng-repeat="day in days">
-      {{ day.day }}
-    </div>
-</div>
+<select ng-model="selectMonth" ng-options="month as month for month in months"></select>
+<select ng-model="selectYear" ng-options="year as year for year in years"></select>
 
 <calendar-display>
 </calender-display>
