@@ -1,1 +1,8 @@
 /* your css code goes here */
+.calendarDates {
+  outline: 1px solid #ccc;
+  display: inline-block;
+  width: 12%;
+  min-height: 6em;
+  padding: 1em;
+}
