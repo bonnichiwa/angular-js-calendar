@@ -5,21 +5,6 @@ angular.module('calendarDemoApp', [])
   var month = today.getMonth()+1;
   var day = today.getDate();
   var year = today.getFullYear();
-  console.log(today);
-  console.log(month);
-  console.log(day);
-  console.log(year);
-
-  var range = CalendarRange.getMonthlyRange(new Date(today));
-  console.log(range);
-
-  $scope.today = today;
-  $scope.month = month;
-  $scope.year = year;
-  $scope.initialDay = range.first;
-  $scope.firstDay = range.start;
-  $scope.lastDay = range.end;
-  $scope.days = range.days;
 
   var yearsThirty = [];
   var yearsBefore = year - 20;
@@ -29,17 +14,35 @@ angular.module('calendarDemoApp', [])
     yearsThirty.push(i);
   }
 
-  console.log(yearsThirty);
-
   $scope.yearsThirty = yearsThirty;
-  $scope.selectYear = $scope.year;
+  $scope.selectYear = year;
 
 
   $scope.monthsTwelve = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   $scope.selectMonth = $scope.monthsTwelve[today.getMonth()];
 
-  // var monthSelected = $scope.selectMonth 
-  // var yearSelected = $scope.selectYear
+  $scope.selectedDate = {
+    month: $scope.selectMonth,
+    year: $scope.selectYear 
+  };
+
+  // var range = CalendarRange.getMonthlyRange(new Date(today));
+
+  $scope.$watchCollection('selectedDate', function(selectedDate){
+    $scope.newDate = selectedDate.month + ', ' + selectedDate.year
+    $scope.range = CalendarRange.getMonthlyRange(new Date($scope.newDate));
+
+    $scope.today = today;
+    $scope.month = month;
+    $scope.year = year;
+    $scope.initialDay = $scope.range.first;
+    $scope.firstDay = $scope.range.start;
+    $scope.lastDay = $scope.range.end;
+    $scope.days = $scope.range.days;
+  });
+
+
+
 
 
 })
